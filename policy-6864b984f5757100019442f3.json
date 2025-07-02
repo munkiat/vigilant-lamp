@@ -1,0 +1,52 @@
+{
+  "_id": "6864b984f5757100019442f3",
+  "id": "6864b984f5757100019442f3",
+  "name": "Sandbox Plan",
+  "org_id": "68640457f5757100019442e6",
+  "rate": 3,
+  "per": 10,
+  "quota_max": -1,
+  "quota_renewal_rate": -1,
+  "throttle_interval": -1,
+  "throttle_retry_limit": -1,
+  "max_query_depth": -1,
+  "access_rights": {
+    "63c376ea17994cc65e416c936b7c735a": {
+      "api_name": "demo",
+      "api_id": "63c376ea17994cc65e416c936b7c735a",
+      "versions": [
+        ""
+      ],
+      "allowed_urls": [],
+      "restricted_types": [],
+      "allowed_types": [],
+      "limit": null,
+      "field_access_rights": [],
+      "disable_introspection": false,
+      "allowance_scope": ""
+    }
+  },
+  "hmac_enabled": false,
+  "enable_http_signature_validation": false,
+  "active": true,
+  "is_inactive": false,
+  "tags": [],
+  "key_expires_in": 2592000,
+  "partitions": {
+    "quota": true,
+    "rate_limit": true,
+    "complexity": false,
+    "acl": false,
+    "per_api": false
+  },
+  "last_updated": "1751431556",
+  "meta_data": {},
+  "graphql_access_rights": null,
+  "smoothing": {
+    "enabled": false,
+    "threshold": 500,
+    "trigger": 0.8,
+    "step": 100,
+    "delay": 30
+  }
+}

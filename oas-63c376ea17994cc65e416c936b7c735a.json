@@ -1,6 +1,14 @@
 {
   "oas": {
-    "components": {},
+    "components": {
+      "securitySchemes": {
+        "authToken": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        }
+      }
+    },
     "info": {
       "title": "demo",
       "version": "1.0.0"
@@ -18,6 +26,11 @@
         }
       }
     },
+    "security": [
+      {
+        "authToken": []
+      }
+    ],
     "servers": [
       {
         "url": "http://localhost:8080/demo/"
@@ -59,6 +72,21 @@
         }
       },
       "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "authToken": {
+              "enabled": true
+            }
+          }
+        },
+        "clientCertificates": {
+          "allowlist": [
+            "68640457f5757100019442e63901a96ba4a04436d0e139738e55d71eafeb83a0e8c99e5f0bd6ec447d01ae79",
+            "68640457f5757100019442e6452bd57bb90d4e9c8725dc046fa6f3663014451b57b8d034f2008da86734ba65"
+          ],
+          "enabled": true
+        },
         "listenPath": {
           "strip": true,
           "value": "/demo/"
