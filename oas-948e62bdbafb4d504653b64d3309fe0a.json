@@ -1,0 +1,86 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "rest-to-stream",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "servers": [
+      {
+        "url": "http://localhost:8080/streaming-fx"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6864a90cf5757100019442f1",
+        "id": "948e62bdbafb4d504653b64d3309fe0a",
+        "name": "streaming-fx",
+        "orgId": "68640457f5757100019442e6",
+        "state": {
+          "active": true
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/streaming-fx"
+        }
+      },
+      "upstream": {
+        "url": ""
+      }
+    },
+    "x-tyk-streaming": {
+      "streams": {
+        "default_stream": {
+          "input": {
+            "http_client": {
+              "auto_replay_nacks": true,
+              "headers": {},
+              "payload": "",
+              "rate_limit": "foobar",
+              "stream": {
+                "enabled": false,
+                "reconnect": true,
+                "scanner": {
+                  "lines": {}
+                }
+              },
+              "timeout": "5s",
+              "url": "https://api.frankfurter.dev/v1/latest",
+              "verb": "GET"
+            },
+            "label": ""
+          },
+          "output": {
+            "http_server": {
+              "address": "",
+              "allowed_verbs": [
+                "GET"
+              ],
+              "path": "/get",
+              "ws_path": "/get/ws"
+            },
+            "label": ""
+          },
+          "rate_limit_resources": [
+            {
+              "label": "foobar",
+              "local": {
+                "count": 1,
+                "interval": "3s"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}
