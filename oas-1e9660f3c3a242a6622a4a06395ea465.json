@@ -1,0 +1,51 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "weather API",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "servers": [
+      {
+        "url": "http://localhost:8080/weather-api/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6864072ef5757100019442ea",
+        "id": "1e9660f3c3a242a6622a4a06395ea465",
+        "name": "weather API",
+        "orgId": "68640457f5757100019442e6",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "contextVariables": {
+            "enabled": true
+          },
+          "trafficLogs": {
+            "enabled": true
+          }
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/weather-api/"
+        }
+      },
+      "upstream": {
+        "url": "http://goweather.xyz/weather/"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

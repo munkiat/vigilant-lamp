@@ -1,0 +1,77 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "demo",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {
+      "/xml": {
+        "get": {
+          "operationId": "xmlget",
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080/demo/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6864046df5757100019442e8",
+        "id": "63c376ea17994cc65e416c936b7c735a",
+        "name": "demo",
+        "orgId": "68640457f5757100019442e6",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "trafficLogs": {
+            "enabled": true
+          }
+        },
+        "operations": {
+          "xmlget": {
+            "transformResponseBody": {
+              "body": "e3sgLiB8IGpzb25NYXJzaGFsIHwgcmVwbGFjZSAiXCItIiAiXCIiIH19",
+              "enabled": true,
+              "format": "xml"
+            },
+            "transformResponseHeaders": {
+              "add": [
+                {
+                  "name": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "enabled": true
+            }
+          }
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/demo/"
+        }
+      },
+      "upstream": {
+        "url": "http://httpbin.org/"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}
