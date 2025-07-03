@@ -1,0 +1,52 @@
+{
+  "_id": "6865f361dad0420001bde3d6",
+  "id": "6865f361dad0420001bde3d6",
+  "name": "PF Customer API",
+  "org_id": "6863d7d9dad0420001b7ab63",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": -1,
+  "throttle_interval": -1,
+  "throttle_retry_limit": -1,
+  "max_query_depth": -1,
+  "access_rights": {
+    "094a9afa2d26410e5a527cc7a892b4ed": {
+      "api_name": "PostFinance Customer API",
+      "api_id": "094a9afa2d26410e5a527cc7a892b4ed",
+      "versions": [
+        ""
+      ],
+      "allowed_urls": [],
+      "restricted_types": [],
+      "allowed_types": [],
+      "limit": null,
+      "field_access_rights": [],
+      "disable_introspection": false,
+      "allowance_scope": ""
+    }
+  },
+  "hmac_enabled": false,
+  "enable_http_signature_validation": false,
+  "active": true,
+  "is_inactive": false,
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "complexity": false,
+    "acl": true,
+    "per_api": false
+  },
+  "last_updated": "1751511905",
+  "meta_data": {},
+  "graphql_access_rights": null,
+  "smoothing": {
+    "enabled": false,
+    "threshold": 500,
+    "trigger": 0.8,
+    "step": 100,
+    "delay": 30
+  }
+}

@@ -1,0 +1,960 @@
+{
+  "oas": {
+    "components": {
+      "schemas": {
+        "ClientError": {
+          "properties": {
+            "date": {
+              "description": "Date when an error has occurred.",
+              "type": "string"
+            },
+            "defaultMessage": {
+              "description": "The error message which is translated into the default language (i.e. English).",
+              "type": "string"
+            },
+            "id": {
+              "description": "Unique identifier of an error.",
+              "type": "string"
+            },
+            "message": {
+              "description": "The error message which is translated in into the language of the client.",
+              "type": "string"
+            },
+            "type": {
+              "description": "The type of the client error.",
+              "enum": [
+                "END_USER_ERROR",
+                "CONFIGURATION_ERROR",
+                "DEVELOPER_ERROR"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "Customer": {
+          "properties": {
+            "createdOn": {
+              "description": "The date and time when the object was created.",
+              "format": "date-time",
+              "type": "string"
+            },
+            "customerId": {
+              "description": "The customer's ID in the merchant's system.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "emailAddress": {
+              "description": "The customer's email address.",
+              "format": "email",
+              "maxLength": 254,
+              "type": "string"
+            },
+            "familyName": {
+              "description": "The customer's family or last name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "givenName": {
+              "description": "The customer's given or first name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "id": {
+              "description": "A unique identifier for the object.",
+              "format": "int64",
+              "type": "integer"
+            },
+            "language": {
+              "description": "The language that is linked to the object.",
+              "type": "string"
+            },
+            "linkedSpaceId": {
+              "description": "The ID of the space this object belongs to.",
+              "format": "int64",
+              "type": "integer"
+            },
+            "metaData": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Allow to store additional information about the object.",
+              "type": "object"
+            },
+            "preferredCurrency": {
+              "description": "The customer's preferred currency.",
+              "type": "string"
+            },
+            "version": {
+              "description": "The version is used for optimistic locking and incremented whenever the object is updated.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "type": "object"
+        },
+        "CustomerActive": {
+          "properties": {
+            "customerId": {
+              "description": "The customer's ID in the merchant's system.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "emailAddress": {
+              "description": "The customer's email address.",
+              "format": "email",
+              "maxLength": 254,
+              "type": "string"
+            },
+            "familyName": {
+              "description": "The customer's family or last name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "givenName": {
+              "description": "The customer's given or first name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "id": {
+              "description": "A unique identifier for the object.",
+              "format": "int64",
+              "type": "integer"
+            },
+            "language": {
+              "description": "The language that is linked to the object.",
+              "type": "string"
+            },
+            "metaData": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Allow to store additional information about the object.",
+              "type": "object"
+            },
+            "preferredCurrency": {
+              "description": "The customer's preferred currency.",
+              "type": "string"
+            },
+            "version": {
+              "description": "The version is used for optimistic locking and incremented whenever the object is updated.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "type": "object"
+        },
+        "CustomerCreate": {
+          "properties": {
+            "customerId": {
+              "description": "The customer's ID in the merchant's system.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "emailAddress": {
+              "description": "The customer's email address.",
+              "format": "email",
+              "maxLength": 254,
+              "type": "string"
+            },
+            "familyName": {
+              "description": "The customer's family or last name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "givenName": {
+              "description": "The customer's given or first name.",
+              "maxLength": 100,
+              "type": "string"
+            },
+            "language": {
+              "description": "The language that is linked to the object.",
+              "type": "string"
+            },
+            "metaData": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Allow to store additional information about the object.",
+              "type": "object"
+            },
+            "preferredCurrency": {
+              "description": "The customer's preferred currency.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "EntityQuery": {
+          "properties": {
+            "filter": {
+              "$ref": "#/components/schemas/EntityQueryFilter"
+            },
+            "language": {
+              "description": "The language is applied to the ordering of the entities returned. Some entity fields are language dependent and hence the language is required to order them.",
+              "type": "string"
+            },
+            "numberOfEntities": {
+              "description": "The number of entities defines how many entities should be returned. There is a maximum of 100 entities.",
+              "type": "integer"
+            },
+            "orderBys": {
+              "description": "The order bys allows to define the ordering of the entities returned by the search.",
+              "items": {
+                "$ref": "#/components/schemas/EntityQueryOrderBy"
+              },
+              "type": "array"
+            },
+            "startingEntity": {
+              "description": "The 'starting entity' defines the entity number at which the returned result should start. The entity number is the consecutive number of the entity as returned and it is not the entity id.",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "EntityQueryFilter": {
+          "properties": {
+            "children": {
+              "description": "The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.",
+              "items": {
+                "$ref": "#/components/schemas/EntityQueryFilter"
+              },
+              "type": "array"
+            },
+            "fieldName": {
+              "description": "The 'fieldName' indicates the property on the entity which should be filtered. This property is only applicable on filter type 'LEAF'.",
+              "type": "string"
+            },
+            "operator": {
+              "description": "The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.",
+              "enum": [
+                "EQUALS",
+                "GREATER_THAN",
+                "GREATER_THAN_OR_EQUAL",
+                "LESS_THAN",
+                "LESS_THAN_OR_EQUAL",
+                "NOT_EQUALS",
+                "CONTAINS",
+                "NOT_CONTAINS",
+                "STARTS_WITH",
+                "ENDS_WITH",
+                "IN",
+                "NOT_IN",
+                "IS_NULL",
+                "IS_NOT_NULL"
+              ],
+              "type": "string"
+            },
+            "type": {
+              "description": "The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.",
+              "enum": [
+                "LEAF",
+                "OR",
+                "AND"
+              ],
+              "type": "string"
+            },
+            "value": {
+              "description": "The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.",
+              "type": "object"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "EntityQueryOrderBy": {
+          "properties": {
+            "fieldName": {
+              "type": "string"
+            },
+            "sorting": {
+              "enum": [
+                "ASC",
+                "DESC"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "fieldName",
+            "sorting"
+          ],
+          "type": "object"
+        },
+        "ServerError": {
+          "properties": {
+            "date": {
+              "description": "Date when an error has occurred.",
+              "type": "string"
+            },
+            "id": {
+              "description": "Unique identifier of an error.",
+              "type": "string"
+            },
+            "message": {
+              "description": "This message describes an error.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "securitySchemes": {
+        "authToken": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        }
+      }
+    },
+    "info": {
+      "description": "API for managing customers in the PostFinance Checkout system",
+      "title": "PostFinance Checkout Customer API",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.2",
+    "paths": {
+      "/customer/create": {
+        "post": {
+          "description": "Creates the entity with the given properties.",
+          "operationId": "create",
+          "parameters": [
+            {
+              "description": "The ID of the space this object belongs to.",
+              "in": "query",
+              "name": "spaceId",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "customerId": "customer123",
+                  "emailAddress": "john.doe@example.com",
+                  "familyName": "Doe",
+                  "givenName": "John",
+                  "language": "en-US",
+                  "metaData": {
+                    "customerType": "retail",
+                    "registrationSource": "website"
+                  },
+                  "preferredCurrency": "CHF"
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerCreate"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "createdOn": "2023-10-15T14:30:45.123Z",
+                    "customerId": "customer123",
+                    "emailAddress": "john.doe@example.com",
+                    "familyName": "Doe",
+                    "givenName": "John",
+                    "id": 12345,
+                    "language": "en-US",
+                    "linkedSpaceId": 1000,
+                    "metaData": {
+                      "customerType": "retail",
+                      "registrationSource": "website"
+                    },
+                    "preferredCurrency": "CHF",
+                    "version": 1
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              },
+              "description": "This status code indicates that a client request was successfully received, understood, and accepted."
+            },
+            "442": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The email address format is invalid.",
+                    "id": "error-12348",
+                    "message": "The email address format is invalid.",
+                    "type": "END_USER_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error."
+            },
+            "542": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "id": "error-12349",
+                    "message": "An unexpected error occurred while processing your request."
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ServerError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request."
+            }
+          },
+          "summary": "Create"
+        }
+      },
+      "/customer/delete": {
+        "post": {
+          "description": "Deletes the entity with the given id.",
+          "operationId": "delete",
+          "parameters": [
+            {
+              "description": "The ID of the space this object belongs to.",
+              "in": "query",
+              "name": "spaceId",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "example": 12345,
+                "schema": {
+                  "format": "int64",
+                  "type": "integer"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "This status code indicates that a client request was successfully received, understood, and accepted."
+            },
+            "409": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The customer with the given ID could not be deleted due to a version conflict.",
+                    "id": "error-12345",
+                    "message": "The customer with the given ID could not be deleted due to a version conflict.",
+                    "type": "CONFIGURATION_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request."
+            },
+            "442": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The customer ID is required.",
+                    "id": "error-12346",
+                    "message": "The customer ID is required.",
+                    "type": "DEVELOPER_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error."
+            },
+            "542": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "id": "error-12347",
+                    "message": "An unexpected error occurred while processing your request."
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ServerError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request."
+            }
+          },
+          "summary": "Delete"
+        }
+      },
+      "/customer/read": {
+        "get": {
+          "description": "Reads the entity with the given 'id' and returns it.",
+          "operationId": "read",
+          "parameters": [
+            {
+              "description": "The ID of the space this object belongs to.",
+              "in": "query",
+              "name": "spaceId",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            },
+            {
+              "description": "The id of the customer which should be returned.",
+              "in": "query",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "createdOn": "2023-10-15T14:30:45.123Z",
+                    "customerId": "customer123",
+                    "emailAddress": "john.doe@example.com",
+                    "familyName": "Doe",
+                    "givenName": "John",
+                    "id": 12345,
+                    "language": "en-US",
+                    "linkedSpaceId": 1000,
+                    "metaData": {
+                      "customerType": "retail",
+                      "registrationSource": "website"
+                    },
+                    "preferredCurrency": "CHF",
+                    "version": 1
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              },
+              "description": "This status code indicates that a client request was successfully received, understood, and accepted."
+            },
+            "442": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The customer with the given ID was not found.",
+                    "id": "error-12350",
+                    "message": "The customer with the given ID was not found.",
+                    "type": "END_USER_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error."
+            },
+            "542": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "id": "error-12351",
+                    "message": "An unexpected error occurred while processing your request."
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ServerError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request."
+            }
+          },
+          "summary": "Read"
+        }
+      },
+      "/customer/search": {
+        "post": {
+          "description": "Searches for the entities as specified by the given query.",
+          "operationId": "search",
+          "parameters": [
+            {
+              "description": "The ID of the space this object belongs to.",
+              "in": "query",
+              "name": "spaceId",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "filter": {
+                    "children": [
+                      {
+                        "fieldName": "emailAddress",
+                        "operator": "CONTAINS",
+                        "type": "LEAF",
+                        "value": "example.com"
+                      },
+                      {
+                        "fieldName": "createdOn",
+                        "operator": "GREATER_THAN",
+                        "type": "LEAF",
+                        "value": "2023-01-01T00:00:00.000Z"
+                      }
+                    ],
+                    "type": "AND"
+                  },
+                  "language": "en-US",
+                  "numberOfEntities": 10,
+                  "orderBys": [
+                    {
+                      "fieldName": "createdOn",
+                      "sorting": "DESC"
+                    }
+                  ],
+                  "startingEntity": 0
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/EntityQuery"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "example": [
+                    {
+                      "createdOn": "2023-10-15T14:30:45.123Z",
+                      "customerId": "customer123",
+                      "emailAddress": "john.doe@example.com",
+                      "familyName": "Doe",
+                      "givenName": "John",
+                      "id": 12345,
+                      "language": "en-US",
+                      "linkedSpaceId": 1000,
+                      "metaData": {
+                        "customerType": "retail",
+                        "registrationSource": "website"
+                      },
+                      "preferredCurrency": "CHF",
+                      "version": 1
+                    },
+                    {
+                      "createdOn": "2023-09-10T09:15:30.456Z",
+                      "customerId": "customer456",
+                      "emailAddress": "jane.smith@example.com",
+                      "familyName": "Smith",
+                      "givenName": "Jane",
+                      "id": 12346,
+                      "language": "en-US",
+                      "linkedSpaceId": 1000,
+                      "metaData": {
+                        "customerType": "retail",
+                        "registrationSource": "mobile"
+                      },
+                      "preferredCurrency": "CHF",
+                      "version": 1
+                    }
+                  ],
+                  "schema": {
+                    "items": {
+                      "$ref": "#/components/schemas/Customer"
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "description": "This status code indicates that a client request was successfully received, understood, and accepted."
+            },
+            "442": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The search query is invalid.",
+                    "id": "error-12352",
+                    "message": "The search query is invalid.",
+                    "type": "DEVELOPER_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error."
+            },
+            "542": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "id": "error-12353",
+                    "message": "An unexpected error occurred while processing your request."
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ServerError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request."
+            }
+          },
+          "summary": "Search"
+        }
+      },
+      "/customer/update": {
+        "post": {
+          "description": "This updates the entity with the given properties. Only those properties which should be updated can be provided. The 'id' and 'version' are required to identify the entity.",
+          "operationId": "update",
+          "parameters": [
+            {
+              "description": "The ID of the space this object belongs to.",
+              "in": "query",
+              "name": "spaceId",
+              "required": true,
+              "schema": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "emailAddress": "john.updated@example.com",
+                  "id": 12345,
+                  "preferredCurrency": "EUR",
+                  "version": 1
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerActive"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "createdOn": "2023-10-15T14:30:45.123Z",
+                    "customerId": "customer123",
+                    "emailAddress": "john.updated@example.com",
+                    "familyName": "Doe",
+                    "givenName": "John",
+                    "id": 12345,
+                    "language": "en-US",
+                    "linkedSpaceId": 1000,
+                    "metaData": {
+                      "customerType": "retail",
+                      "registrationSource": "website"
+                    },
+                    "preferredCurrency": "EUR",
+                    "version": 2
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              },
+              "description": "This status code indicates that a client request was successfully received, understood, and accepted."
+            },
+            "409": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The customer with the given ID could not be updated due to a version conflict.",
+                    "id": "error-12354",
+                    "message": "The customer with the given ID could not be updated due to a version conflict.",
+                    "type": "CONFIGURATION_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request."
+            },
+            "442": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "defaultMessage": "The email address format is invalid.",
+                    "id": "error-12355",
+                    "message": "The email address format is invalid.",
+                    "type": "END_USER_ERROR"
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ClientError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error."
+            },
+            "542": {
+              "content": {
+                "application/json": {
+                  "example": {
+                    "date": "2023-10-15T14:30:45.123Z",
+                    "id": "error-12356",
+                    "message": "An unexpected error occurred while processing your request."
+                  },
+                  "schema": {
+                    "$ref": "#/components/schemas/ServerError"
+                  }
+                }
+              },
+              "description": "This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request."
+            }
+          },
+          "summary": "Update"
+        }
+      }
+    },
+    "security": [
+      {
+        "authToken": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8080/customer"
+      },
+      {
+        "description": "PostFinance Checkout API Server",
+        "url": "https://checkout.postfinance.ch/api"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6865e783dad0420001b7b5dc",
+        "id": "094a9afa2d26410e5a527cc7a892b4ed",
+        "name": "PostFinance Customer API",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "contextVariables": {
+            "enabled": true
+          },
+          "trafficLogs": {
+            "enabled": true
+          }
+        },
+        "operations": {
+          "create": {
+            "mockResponse": {
+              "enabled": true,
+              "fromOASExamples": {
+                "code": 200,
+                "contentType": "application/json",
+                "enabled": true
+              }
+            }
+          },
+          "delete": {
+            "mockResponse": {
+              "enabled": true,
+              "fromOASExamples": {
+                "code": 200,
+                "enabled": true
+              }
+            }
+          },
+          "read": {
+            "mockResponse": {
+              "enabled": true,
+              "fromOASExamples": {
+                "code": 200,
+                "contentType": "application/json",
+                "enabled": true
+              }
+            }
+          },
+          "search": {
+            "mockResponse": {
+              "enabled": true,
+              "fromOASExamples": {
+                "code": 200,
+                "contentType": "application/json",
+                "enabled": true
+              }
+            }
+          },
+          "update": {
+            "mockResponse": {
+              "enabled": true,
+              "fromOASExamples": {
+                "code": 200,
+                "contentType": "application/json",
+                "enabled": true
+              }
+            }
+          }
+        }
+      },
+      "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "authToken": {
+              "enabled": true
+            }
+          }
+        },
+        "listenPath": {
+          "strip": true,
+          "value": "/customer"
+        }
+      },
+      "upstream": {
+        "url": "https://checkout.postfinance.ch/api"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}
