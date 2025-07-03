@@ -1,0 +1,69 @@
+{
+  "oas": {
+    "components": {
+      "securitySchemes": {
+        "jwtAuth": {
+          "bearerFormat": "JWT",
+          "scheme": "bearer",
+          "type": "http"
+        }
+      }
+    },
+    "info": {
+      "title": "johnapi - v2",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "security": [
+      {
+        "jwtAuth": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8080/johnapi-v2/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "68664b37dad0420001bdeb8c",
+        "id": "ee383107281440b771212c1e5c796df3",
+        "name": "johnapi - v2",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true,
+          "internal": true
+        }
+      },
+      "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "jwtAuth": {
+              "enabled": true,
+              "header": {
+                "enabled": true,
+                "name": "Authorization"
+              },
+              "identityBaseField": "sub",
+              "policyFieldName": "pol",
+              "signingMethod": "rsa"
+            }
+          }
+        },
+        "listenPath": {
+          "value": "/johnapi-v2/"
+        }
+      },
+      "upstream": {
+        "url": "http://httpbin.org/"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

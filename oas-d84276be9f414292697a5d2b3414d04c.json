@@ -1,0 +1,73 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "from-kafka",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "servers": [
+      {
+        "url": "http://localhost:8080/from-kafka/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "68661245dad0420001bde765",
+        "id": "d84276be9f414292697a5d2b3414d04c",
+        "name": "from-kafka",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/from-kafka/"
+        }
+      },
+      "upstream": {
+        "url": ""
+      }
+    },
+    "x-tyk-streaming": {
+      "streams": {
+        "default_stream": {
+          "input": {
+            "kafka": {
+              "addresses": [
+                "kafka:9092"
+              ],
+              "auto_replay_nacks": true,
+              "checkpoint_limit": 1024,
+              "consumer_group": "streamer",
+              "target_version": "2.1.0",
+              "topics": [
+                "chat"
+              ]
+            },
+            "label": ""
+          },
+          "output": {
+            "http_server": {
+              "address": "",
+              "allowed_verbs": [
+                "GET"
+              ],
+              "path": "/get",
+              "stream_path": "/get/sse"
+            },
+            "label": ""
+          }
+        }
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

@@ -1,0 +1,77 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "ambermock",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {
+      "/xml": {
+        "get": {
+          "operationId": "xmlget",
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080/ambermock/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "6866460ddad0420001bdeac2",
+        "id": "6c8426f9887548e96a88708e8f5a9e6d",
+        "name": "ambermock",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "trafficLogs": {
+            "enabled": true
+          }
+        },
+        "operations": {
+          "xmlget": {
+            "transformResponseBody": {
+              "body": "e3sgLiB8IGpzb25NYXJzaGFsIH19",
+              "enabled": true,
+              "format": "xml"
+            },
+            "transformResponseHeaders": {
+              "add": [
+                {
+                  "name": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "enabled": true
+            }
+          }
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/ambermock/"
+        }
+      },
+      "upstream": {
+        "url": "http://httpbin.org/"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

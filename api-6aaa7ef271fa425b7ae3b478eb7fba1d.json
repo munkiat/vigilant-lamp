@@ -8,7 +8,7 @@
     "enable_proxy_protocol": false,
     "api_id": "6aaa7ef271fa425b7ae3b478eb7fba1d",
     "org_id": "6863d7d9dad0420001b7ab63",
-    "use_keyless": false,
+    "use_keyless": true,
     "use_oauth2": false,
     "use_openid": false,
     "openid_options": {
@@ -203,7 +203,7 @@
     "upstream_certificates": {},
     "pinned_public_keys": {},
     "enable_jwt": false,
-    "use_standard_auth": true,
+    "use_standard_auth": false,
     "use_go_plugin_auth": false,
     "enable_coprocess_auth": false,
     "custom_plugin_auth_enabled": false,
@@ -473,7 +473,7 @@
               "url": "tyk://b4f5606bce594c2e6aef55b241b406fc/",
               "method": "POST",
               "body": "",
-              "headers": null
+              "headers": {}
             }
           },
           {
@@ -492,7 +492,7 @@
               "url": "tyk://1e9660f3c3a242a6622a4a06395ea465/{{.object.name}}",
               "method": "GET",
               "body": "",
-              "headers": null
+              "headers": {}
             }
           }
         ],
@@ -513,7 +513,7 @@
         "sdl": ""
       },
       "supergraph": {
-        "updated_at": "2025-07-02T16:44:48.469891Z",
+        "updated_at": "2025-07-03T09:43:20.720973Z",
         "subgraphs": [],
         "merged_sdl": "",
         "global_headers": {},

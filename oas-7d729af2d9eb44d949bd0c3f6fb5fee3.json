@@ -1,38 +1,39 @@
 {
   "oas": {
-    "components": {
-      "securitySchemes": {
-        "authToken": {
-          "in": "header",
-          "name": "Authorization",
-          "type": "apiKey"
-        }
-      }
-    },
+    "components": {},
     "info": {
-      "title": "weather API",
+      "title": "johnapi",
       "version": "1.0.0"
     },
     "openapi": "3.0.3",
     "paths": {},
-    "security": [
-      {
-        "authToken": []
-      }
-    ],
     "servers": [
       {
-        "url": "http://localhost:8080/weather-api/"
+        "url": "http://localhost:8080/johnapi/"
       }
     ],
     "x-tyk-api-gateway": {
       "info": {
-        "dbId": "68651d88dad0420001b7ace4",
-        "id": "1e9660f3c3a242a6622a4a06395ea465",
-        "name": "weather API",
+        "dbId": "686649c9dad0420001bdeb18",
+        "expiration": "2025-07-04 12:00",
+        "id": "7d729af2d9eb44d949bd0c3f6fb5fee3",
+        "name": "johnapi",
         "orgId": "6863d7d9dad0420001b7ab63",
         "state": {
           "active": true
+        },
+        "versioning": {
+          "default": "v2",
+          "enabled": true,
+          "key": "x-api-version",
+          "location": "header",
+          "name": "v1",
+          "versions": [
+            {
+              "id": "ee383107281440b771212c1e5c796df3",
+              "name": "v2"
+            }
+          ]
         }
       },
       "middleware": {
@@ -46,21 +47,13 @@
         }
       },
       "server": {
-        "authentication": {
-          "enabled": false,
-          "securitySchemes": {
-            "authToken": {
-              "enabled": true
-            }
-          }
-        },
         "listenPath": {
           "strip": true,
-          "value": "/weather-api/"
+          "value": "/johnapi/"
         }
       },
       "upstream": {
-        "url": "http://goweather.xyz/weather/"
+        "url": "http://httpbin.org/"
       }
     }
   },

@@ -47,8 +47,10 @@
         }
       },
       "middleware": {
-        "operations": {
-          "xmlget": {}
+        "global": {
+          "trafficLogs": {
+            "enabled": true
+          }
         }
       },
       "server": {
@@ -63,7 +65,8 @@
         "clientCertificates": {
           "allowlist": [
             "6863d7d9dad0420001b7ab634efc04560ae93babba30d46e65abfd5063390190188bf408e2f880918543dca1",
-            "6863d7d9dad0420001b7ab63e3c12fb69c1e1b6ce2d7c64cb5eaacbefbf43b63982e1e8c325a0bcb8922dc28"
+            "6863d7d9dad0420001b7ab63e3c12fb69c1e1b6ce2d7c64cb5eaacbefbf43b63982e1e8c325a0bcb8922dc28",
+            "6863d7d9dad0420001b7ab638c71577f078f118f76ee41e25e0f1ad2283c3f2d299b6181dedd319159250bf7"
           ],
           "enabled": true
         },
