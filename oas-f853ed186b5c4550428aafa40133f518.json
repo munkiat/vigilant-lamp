@@ -1,12 +1,25 @@
 {
   "oas": {
-    "components": {},
+    "components": {
+      "securitySchemes": {
+        "authToken": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        }
+      }
+    },
     "info": {
       "title": "fx API",
       "version": "1.0.0"
     },
     "openapi": "3.0.3",
     "paths": {},
+    "security": [
+      {
+        "authToken": []
+      }
+    ],
     "servers": [
       {
         "url": "http://localhost:8080/fx-api/"
@@ -14,10 +27,10 @@
     ],
     "x-tyk-api-gateway": {
       "info": {
-        "dbId": "6864064cf5757100019442e9",
+        "dbId": "68651d88dad0420001b7ace6",
         "id": "f853ed186b5c4550428aafa40133f518",
         "name": "fx API",
-        "orgId": "68640457f5757100019442e6",
+        "orgId": "6863d7d9dad0420001b7ab63",
         "state": {
           "active": true
         }
@@ -33,6 +46,14 @@
         }
       },
       "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "authToken": {
+              "enabled": true
+            }
+          }
+        },
         "listenPath": {
           "strip": true,
           "value": "/fx-api/"

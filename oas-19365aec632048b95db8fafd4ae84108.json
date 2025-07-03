@@ -1,0 +1,80 @@
+{
+  "oas": {
+    "components": {},
+    "info": {
+      "title": "to-kafka",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "servers": [
+      {
+        "url": "http://localhost:8080/to-kafka/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "68654db9dad0420001b7aefb",
+        "id": "19365aec632048b95db8fafd4ae84108",
+        "name": "to-kafka",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true
+        }
+      },
+      "server": {
+        "listenPath": {
+          "strip": true,
+          "value": "/to-kafka/"
+        }
+      },
+      "upstream": {
+        "url": ""
+      }
+    },
+    "x-tyk-streaming": {
+      "streams": {
+        "default_stream": {
+          "input": {
+            "http_server": {
+              "address": "",
+              "allowed_verbs": [
+                "POST"
+              ],
+              "path": "/chat"
+            }
+          },
+          "output": {
+            "kafka": {
+              "addresses": [
+                "kafka:9092"
+              ],
+              "batching": {
+                "byte_size": 0,
+                "check": "",
+                "count": 0,
+                "period": ""
+              },
+              "compression": "none",
+              "key": "",
+              "max_in_flight": 64,
+              "metadata": {
+                "exclude_prefixes": []
+              },
+              "partitioner": "fnv1a_hash",
+              "static_headers": {},
+              "target_version": "2.1.0",
+              "topic": "chat"
+            },
+            "label": ""
+          }
+        }
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

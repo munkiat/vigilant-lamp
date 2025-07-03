@@ -1,9 +1,9 @@
 {
-  "_id": "6864b947f5757100019442f2",
-  "id": "6864b947f5757100019442f2",
-  "name": "Demo API ",
+  "_id": "6865649cdad0420001b7b08e",
+  "id": "6865649cdad0420001b7b08e",
+  "name": "Production Plan",
   "org_id": "6863d7d9dad0420001b7ab63",
-  "rate": 1000,
+  "rate": 10,
   "per": 60,
   "quota_max": -1,
   "quota_renewal_rate": -1,
@@ -11,9 +11,9 @@
   "throttle_retry_limit": -1,
   "max_query_depth": -1,
   "access_rights": {
-    "63c376ea17994cc65e416c936b7c735a": {
-      "api_name": "OKAUT API",
-      "api_id": "63c376ea17994cc65e416c936b7c735a",
+    "7dc2fbd399a24f0672a5870a032bd4e3": {
+      "api_name": "JWT-demo",
+      "api_id": "7dc2fbd399a24f0672a5870a032bd4e3",
       "versions": [
         ""
       ],
@@ -33,13 +33,13 @@
   "tags": [],
   "key_expires_in": 0,
   "partitions": {
-    "quota": false,
-    "rate_limit": false,
+    "quota": true,
+    "rate_limit": true,
     "complexity": false,
-    "acl": true,
+    "acl": false,
     "per_api": false
   },
-  "last_updated": "1751475938",
+  "last_updated": "1751475356",
   "meta_data": {},
   "graphql_access_rights": null,
   "smoothing": {

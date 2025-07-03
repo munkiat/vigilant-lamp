@@ -2,7 +2,7 @@
   "_id": "6864b984f5757100019442f3",
   "id": "6864b984f5757100019442f3",
   "name": "Sandbox Plan",
-  "org_id": "68640457f5757100019442e6",
+  "org_id": "6863d7d9dad0420001b7ab63",
   "rate": 3,
   "per": 10,
   "quota_max": -1,
@@ -12,7 +12,7 @@
   "max_query_depth": -1,
   "access_rights": {
     "63c376ea17994cc65e416c936b7c735a": {
-      "api_name": "demo",
+      "api_name": "OKAUT API",
       "api_id": "63c376ea17994cc65e416c936b7c735a",
       "versions": [
         ""

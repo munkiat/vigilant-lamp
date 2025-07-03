@@ -1,14 +1,14 @@
 {
   "api_definition": {
-    "id": "686407e9f5757100019442eb",
+    "id": "68651d88dad0420001b7acec",
     "name": "Countries GQL",
     "slug": "temp",
     "listen_port": 0,
     "protocol": "",
     "enable_proxy_protocol": false,
     "api_id": "b4f5606bce594c2e6aef55b241b406fc",
-    "org_id": "68640457f5757100019442e6",
-    "use_keyless": true,
+    "org_id": "6863d7d9dad0420001b7ab63",
+    "use_keyless": false,
     "use_oauth2": false,
     "use_openid": false,
     "openid_options": {
@@ -203,7 +203,7 @@
     "upstream_certificates": {},
     "pinned_public_keys": {},
     "enable_jwt": false,
-    "use_standard_auth": false,
+    "use_standard_auth": true,
     "use_go_plugin_auth": false,
     "enable_coprocess_auth": false,
     "custom_plugin_auth_enabled": false,
@@ -457,7 +457,7 @@
         "sdl": ""
       },
       "supergraph": {
-        "updated_at": "2025-07-01T16:12:28.387021Z",
+        "updated_at": "2025-07-02T16:44:37.169616Z",
         "subgraphs": [
           {
             "api_id": "",

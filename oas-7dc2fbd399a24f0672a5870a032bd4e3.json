@@ -1,0 +1,93 @@
+{
+  "oas": {
+    "components": {
+      "securitySchemes": {
+        "jwtAuth": {
+          "bearerFormat": "JWT",
+          "scheme": "bearer",
+          "type": "http"
+        }
+      }
+    },
+    "info": {
+      "title": "JWT-demo",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.3",
+    "paths": {},
+    "security": [
+      {
+        "jwtAuth": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8080/jwt-demo/"
+      }
+    ],
+    "x-tyk-api-gateway": {
+      "info": {
+        "dbId": "68656293dad0420001b7b02e",
+        "id": "7dc2fbd399a24f0672a5870a032bd4e3",
+        "name": "JWT-demo",
+        "orgId": "6863d7d9dad0420001b7ab63",
+        "state": {
+          "active": true
+        }
+      },
+      "middleware": {
+        "global": {
+          "trafficLogs": {
+            "enabled": true
+          }
+        }
+      },
+      "server": {
+        "authentication": {
+          "enabled": true,
+          "securitySchemes": {
+            "jwtAuth": {
+              "defaultPolicies": [
+                "686562c1dad0420001b7b041"
+              ],
+              "enabled": true,
+              "header": {
+                "enabled": true,
+                "name": "Authorization"
+              },
+              "identityBaseField": "sub",
+              "policyFieldName": "pol",
+              "scopes": {
+                "claimName": "scope",
+                "scopeToPolicyMapping": [
+                  {
+                    "policyId": "6865647adad0420001b7b07c",
+                    "scope": "jwt_api"
+                  },
+                  {
+                    "policyId": "6865649cdad0420001b7b08e",
+                    "scope": "production_plan"
+                  }
+                ]
+              },
+              "signingMethod": "rsa",
+              "source": "aHR0cHM6Ly9sZW11ci0xNC5jbG91ZC1pYW0uY29tL2F1dGgvcmVhbG1zL3R5a2RlbW8vcHJvdG9jb2wvb3BlbmlkLWNvbm5lY3QvY2VydHM="
+            }
+          }
+        },
+        "listenPath": {
+          "strip": true,
+          "value": "/jwt-demo/"
+        }
+      },
+      "upstream": {
+        "url": "http://httpbin.org/"
+      }
+    }
+  },
+  "hook_references": [],
+  "is_site": false,
+  "sort_by": 0,
+  "user_group_owners": [],
+  "user_owners": []
+}

@@ -1,7 +1,7 @@
 {
-  "_id": "6864b947f5757100019442f2",
-  "id": "6864b947f5757100019442f2",
-  "name": "Demo API ",
+  "_id": "686566a5dad0420001b7b0b4",
+  "id": "686566a5dad0420001b7b0b4",
+  "name": "Countries GQL",
   "org_id": "6863d7d9dad0420001b7ab63",
   "rate": 1000,
   "per": 60,
@@ -11,11 +11,11 @@
   "throttle_retry_limit": -1,
   "max_query_depth": -1,
   "access_rights": {
-    "63c376ea17994cc65e416c936b7c735a": {
-      "api_name": "OKAUT API",
-      "api_id": "63c376ea17994cc65e416c936b7c735a",
+    "b4f5606bce594c2e6aef55b241b406fc": {
+      "api_name": "Countries GQL",
+      "api_id": "b4f5606bce594c2e6aef55b241b406fc",
       "versions": [
-        ""
+        "Default"
       ],
       "allowed_urls": [],
       "restricted_types": [],
@@ -39,7 +39,7 @@
     "acl": true,
     "per_api": false
   },
-  "last_updated": "1751475938",
+  "last_updated": "1751475877",
   "meta_data": {},
   "graphql_access_rights": null,
   "smoothing": {
